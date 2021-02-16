@@ -1,0 +1,48 @@
+<div class="modal-header bg-primary text-white">
+    <h4 class="modal-title ml-auto mr-auto" id="modal-basic-title">Mettre à jour un client</h4>
+</div>
+ <div class="modal-body">
+   <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="editForm">
+    <div class="form-group row d-flex justify-content-center align-items-center" >
+        <label for="_id" class="col-form-label col-sm-2 text-right">Identifiant Catégorie:</label>
+        <div class="col-sm-5">
+            <input type="text" formControlName="_id" class="form-control" readonly/>
+            <div *ngIf="editFormData._id.invalid && (editFormData._id.dirty || editFormData._id.touched)"
+                class="alert-danger">
+                <span>First name is required!</span>
+            </div>
+        </div>
+    </div>
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="code" class="col-form-label col-sm-2 text-right">Code Catégorie:</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="code" class="form-control" />
+                <div *ngIf="editFormData.code.invalid && (editFormData.code.dirty || editFormData.code.touched)"
+                    class="alert-danger">
+                    <span>First name is required!</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="designation" class="col-form-label col-sm-2 text-right">Désignation Catégorie:</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="designation" class="form-control" />
+                <div *ngIf="editFormData.designation.invalid && (editFormData.designation.dirty || editFormData.designation.touched)"
+                    class="alert-danger">
+                    <span>Last name is required!</span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="modal-footer">
+            <button [disabled]="isLoading" class="btn btn-primary mr-2" (click)="modal.close('Cancel')">Cancel</button>
+            <button [disabled]="isLoading" class="btn btn-primary mr-2">Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+
+

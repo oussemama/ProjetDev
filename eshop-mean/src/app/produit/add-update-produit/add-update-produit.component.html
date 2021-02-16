@@ -1,0 +1,47 @@
+<div id="id01" class="">
+	<form class="modal-content" novalidate [formGroup]="produitForm">
+		<div class="container">
+			<h1>Nouveau Produit</h1>
+			<p>Veuillez saisir les données du produit</p>
+			<hr>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Entrer Code" [(ngModel)]="codeP" formControlName="codeP">
+				<small class="form-text text-muted"	*ngIf="produitForm.controls.codeP.invalid&&(produitForm.controls.codeP.dirty 
+														|| produitForm.controls.codeP.touched)">
+														code Produit invalide
+				</small>	
+			</div>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Entrer Libellé" [(ngModel)]="libelleP" formControlName="libelleP">
+				<small class="form-text text-muted"	*ngIf="produitForm.controls.libelleP.invalid&&(produitForm.controls.libelleP.dirty 
+				|| produitForm.controls.libelleP.touched)">
+				libellé Produit invalide
+				</small>
+			</div>
+
+			<div class="form-group">
+				<input type="number" class="form-control" placeholder="Entrer Prix" [(ngModel)]="prixP" formControlName="prixP">
+				<small class="form-text text-muted"	*ngIf="produitForm.controls.prixP.invalid&&(produitForm.controls.prixP.dirty 
+				|| produitForm.controls.prixP.touched)">
+				Prix Produit invalide
+				</small>
+			</div>
+
+			<div class="form-group">
+				<label>Catégorie:</label>
+				<select class="form-control" [(ngModel)]="categoryP">
+					<option *ngFor='let cat of listCategorie' value={{cat._id}}>{{cat.code}} :
+						{{cat.designation}}</option>
+				</select>
+			</div>
+
+			<div class="clearfix">
+				<input type="button" class="btn btn-success" value="Créer" (click)="ajoutProduit()">
+				<input class="btn btn-secondary" type="reset" value="Effacer">
+			</div>
+		</div>
+	</form>
+</div>
+<!-- /.container -->

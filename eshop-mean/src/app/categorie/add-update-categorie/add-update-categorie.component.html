@@ -1,0 +1,31 @@
+<div id="id01" class="">
+	<form class="modal-content" novalidate [formGroup]="categorieForm">
+		<div class="container">
+			<h1>Nouvelle Catégorie</h1>
+			<p>Veuillez saisir les données d'une nouvelle Catégorie</p>
+			<hr>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Entrer le code du Catégorie" [(ngModel)]="code" formControlName="code">
+				<small class="form-text text-muted"	*ngIf="categorieForm.controls.code.invalid&&(categorieForm.controls.code.dirty 
+														|| categorieForm.controls.code.touched)">
+														Code Catégorie invalide
+				</small>	
+			</div>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Entrer la désignation d'une Catégorie" [(ngModel)]="designation" formControlName="designation">
+				<small class="form-text text-muted"	*ngIf="categorieForm.controls.designation.invalid&&(categorieForm.controls.designation.dirty 
+				|| categorieForm.controls.designation.touched)">
+				Désignation Catégorie invalide
+				</small>
+			</div>
+
+
+			<div class="clearfix">
+				<input type="button" class="btn btn-success" value="Créer" (click)="ajoutCategorie()">
+				<input class="btn btn-secondary" type="reset" value="Effacer">
+			</div>
+		</div>
+	</form>
+</div>

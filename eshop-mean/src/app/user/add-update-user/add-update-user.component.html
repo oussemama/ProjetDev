@@ -1,0 +1,49 @@
+<div id="id01" class="">
+	<form class="modal-content" novalidate [formGroup]="userForm">
+		<div class="container">
+			<h1>Nouveau Client</h1>
+			<p>Veuillez saisir les données d'un nouveau Client</p>
+			<hr>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Entrer le nom du client" [(ngModel)]="nomU" formControlName="nomU">
+				<small class="form-text text-muted"	*ngIf="userForm.controls.nomU.invalid&&(userForm.controls.nomU.dirty 
+														|| userForm.controls.nomU.touched)">
+														Nom Client invalide
+				</small>	
+			</div>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Entrer le prénom du client" [(ngModel)]="prenomU" formControlName="prenomU">
+				<small class="form-text text-muted"	*ngIf="userForm.controls.prenomU.invalid&&(userForm.controls.prenomU.dirty 
+				|| userForm.controls.prenomU.touched)">
+				Prénom Client invalide
+				</small>
+			</div>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Entrer adresse email de client" [(ngModel)]="mailU" formControlName="mailU">
+				<small class="form-text text-muted"	*ngIf="userForm.controls.mailU.invalid&&(userForm.controls.mailU.dirty 
+				|| userForm.controls.mailU.touched)">
+				Adresse Email invalide
+				</small>
+			</div>
+
+            <div class="form-group">
+				<input type="text" class="form-control" placeholder="Entrer le numéro carte identité du client" [(ngModel)]="cinU" formControlName="cinU">
+				<small class="form-text text-muted"	*ngIf="userForm.controls.cinU.invalid&&(userForm.controls.cinU.dirty 
+				|| userForm.controls.cinU.touched)">
+				CIN Client invalide
+				</small>
+			</div>
+
+
+
+			<div class="clearfix">
+				<input type="button" class="btn btn-success" value="Créer" (click)="ajoutUser()">
+				<input class="btn btn-secondary" type="reset" value="Effacer">
+			</div>
+		</div>
+	</form>
+</div>
+<!-- /.container -->

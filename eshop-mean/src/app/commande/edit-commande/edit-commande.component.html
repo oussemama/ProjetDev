@@ -1,0 +1,75 @@
+<div class="modal-header bg-primary text-white">
+    <h4 class="modal-title ml-auto mr-auto" id="modal-basic-title">Mettre à jour un Commande </h4>
+</div>
+ <div class="modal-body">
+   <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="editForm">
+    <div class="form-group row d-flex justify-content-center align-items-center" >
+        <label for="_id" class="col-form-label col-sm-2 text-right">Identifiant Commande:</label>
+        <div class="col-sm-5">
+            <input type="text" formControlName="_id" class="form-control" readonly/>
+
+        </div>
+    </div>
+    <div class="form-group row d-flex justify-content-center align-items-center">
+        <label for="beneficaire" class="col-form-label col-sm-2 text-right">Bénéficaire:</label>
+        <div class="col-sm-5">
+            <select class="form-control" [(ngModel)]="beneficaire">
+                <option *ngFor='let ben of listBeneficaire' value={{ben._id}}>{{ben.nom}} :
+                    {{ben.prenom}}</option>
+            </select>
+        </div>
+    </div>
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="date_c" class="col-form-label col-sm-2 text-right">Date création de commande:</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="date_c" class="form-control" readonly/>
+                <div *ngIf="editFormData.date_c.invalid && (editFormData.date_c.dirty || editFormData.date_c.touched)"
+                    class="alert-danger">
+                    <span>First name is required!</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="date_l" class="col-form-label col-sm-2 text-right">Date de livraison de commande:</label>
+            <div class="col-sm-5">
+                <input type="date" formControlName="date_c" class="form-control" />
+                <div *ngIf="editFormData.date_c.invalid && (editFormData.date_c.dirty || editFormData.date_c.touched)"
+                    class="alert-danger">
+                    <span>Last name is required!</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="produit_comm" class="col-form-label col-sm-2 text-right">Produit à commander:</label>
+            <div class="col-sm-5">
+				<select class="form-control" [(ngModel)]="produit_comm">
+					<option *ngFor='let pro of listProduit' value={{pro._id}}>{{pro.libelle}} :  
+						{{pro.prix}} DT</option>
+				</select>
+            </div>
+        </div>
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="quant" class="col-form-label col-sm-2 text-right">Quantité de produit commandé:</label>
+            <div class="col-sm-5">
+                <input type="number" formControlName="quant" class="form-control" />
+                <div *ngIf="editFormData.quant.invalid && (editFormData.quant.dirty || editFormData.quant.touched)"
+                    class="alert-danger">
+                    <span>First name is required!</span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="modal-footer">
+            <button [disabled]="isLoading" class="btn btn-primary mr-2" (click)="modal.close('Cancel')">Cancel</button>
+            <button [disabled]="isLoading" class="btn btn-primary mr-2">Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+
+

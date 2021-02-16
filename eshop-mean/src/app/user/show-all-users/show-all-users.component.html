@@ -1,0 +1,38 @@
+<div id="id01" class="">
+
+  <div class="modal-content">
+      <div class="container">
+
+          <h1>Liste des Clients</h1>
+          <hr>
+
+          <table class="table">
+              <thead>
+                  <tr>
+                      <td>Nom Client</td>
+                      <td>Prénom Client </td>
+                      <td>Adresse Email Client</td>
+                      <td>Numéro CIN Client</td>
+                      <td>Action</td>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let user of listUsers">
+                      
+                      <td>{{user.nom}}</td>
+                      <td>{{user.prenom}}</td>
+                      <td>{{user.mail}}</td>
+                      <td>{{user.cin}}</td>
+                      <td>
+
+
+                          <button class="btn btn-success" (click)="editItem(user)">Editer</button>
+                          <button class="btn btn-danger" (click)="deleteProduit(user)">Supprimer</button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

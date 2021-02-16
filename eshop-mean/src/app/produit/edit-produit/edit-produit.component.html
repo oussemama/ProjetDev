@@ -1,0 +1,60 @@
+<div class="modal-header bg-primary text-white">
+    <h4 class="modal-title ml-auto mr-auto" id="modal-basic-title">Mise à jour Produit</h4>
+</div>
+ <div class="modal-body">
+   <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="editForm">
+      <div class="form-group row d-flex justify-content-center align-items-center" >
+        <label for="_id" class="col-form-label col-sm-2 text-right">Identifiant Produit:</label>
+        <div class="col-sm-5">
+            <input type="text" formControlName="_id" class="form-control" readonly/>
+            <div *ngIf="editFormData._id.invalid && (editFormData._id.dirty || editFormData._id.touched)"
+                class="alert-danger">
+                <span>First name is required!</span>
+            </div>
+        </div>
+    </div> 
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="code" class="col-form-label col-sm-2 text-right">Code Produit:</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="code" class="form-control" />
+                <div *ngIf="editFormData.code.invalid && (editFormData.code.dirty || editFormData.code.touched)"
+                    class="alert-danger">
+                    <span>First name is required!</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="libelle" class="col-form-label col-sm-2 text-right">libelle Produit</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="libelle" class="form-control" />
+                <div *ngIf="editFormData.libelle.invalid && (editFormData.libelle.dirty || editFormData.libelle.touched)"
+                    class="alert-danger">
+                    <span>Last name is required!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="prix" class="col-form-label col-sm-2 text-right">Prix Produit:</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="prix" class="form-control" />
+                <div *ngIf="editFormData.prix.invalid && (editFormData.prix.dirty || editFormData.prix.touched)"
+                    class="alert-danger">
+                    <span>Mobile number is required!</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal-footer">
+            <button [disabled]="isLoading" class="btn btn-primary " (click)="modal.close('Cancel')">Cancel</button>
+            <button [disabled]="isLoading" class="btn btn-danger">Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+<!-- <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark"  (click)="modal.close('Yes')">Update</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cancel')">Cancel</button>
+</div> -->
+

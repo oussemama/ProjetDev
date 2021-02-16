@@ -1,0 +1,72 @@
+<div class="modal-header bg-primary text-white">
+    <h4 class="modal-title ml-auto mr-auto" id="modal-basic-title">Mettre à jour un client</h4>
+</div>
+ <div class="modal-body">
+   <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="editForm">
+    <div class="form-group row d-flex justify-content-center align-items-center" >
+        <label for="_id" class="col-form-label col-sm-2 text-right">Identifiant Produit:</label>
+        <div class="col-sm-5">
+            <input type="text" formControlName="_id" class="form-control" readonly/>
+            <div *ngIf="editFormData._id.invalid && (editFormData._id.dirty || editFormData._id.touched)"
+                class="alert-danger">
+                <span>First name is required!</span>
+            </div>
+        </div>
+    </div>
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="nom" class="col-form-label col-sm-2 text-right">Nom Client:</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="nom" class="form-control" />
+                <div *ngIf="editFormData.nom.invalid && (editFormData.nom.dirty || editFormData.nom.touched)"
+                    class="alert-danger">
+                    <span>First name is required!</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="prenom" class="col-form-label col-sm-2 text-right">Prénom Client:</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="prenom" class="form-control" />
+                <div *ngIf="editFormData.prenom.invalid && (editFormData.prenom.dirty || editFormData.prenom.touched)"
+                    class="alert-danger">
+                    <span>Last name is required!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="mail" class="col-form-label col-sm-2 text-right">Adresse Email Client:</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="mail" class="form-control" />
+                <div *ngIf="editFormData.mail.invalid && (editFormData.mail.dirty || editFormData.mail.touched)"
+                    class="alert-danger">
+                    <span>Mobile number is required!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row d-flex justify-content-center align-items-center">
+            <label for="cin" class="col-form-label col-sm-2 text-right">Numéro carte d'identité:</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="cin" class="form-control" />
+                <div *ngIf="editFormData.cin.invalid && (editFormData.cin.dirty || editFormData.cin.touched)"
+                    class="alert-danger">
+                    <span>Last name is required!</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="modal-footer">
+            <button [disabled]="isLoading" class="btn btn-primary mr-2" (click)="modal.close('Cancel')">Cancel</button>
+            <button [disabled]="isLoading" class="btn btn-primary mr-2">Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+<!-- <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark"  (click)="modal.close('Yes')">Update</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cancel')">Cancel</button>
+</div> -->
+

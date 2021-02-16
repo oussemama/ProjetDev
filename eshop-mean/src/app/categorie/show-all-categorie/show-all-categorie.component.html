@@ -1,0 +1,37 @@
+
+<div id="id01" class="">
+
+    <div class="modal-content">
+        <div class="container">
+  
+            <h1>Liste des Catégories</h1>
+            <hr>
+  
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Identifiant Catégorie</td>
+                        <td>Code Catégorie</td>
+                        <td>Désignation Catégorie </td>
+
+                        <td>Action</td>
+  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let categorie of listCategories">
+                        <td>{{categorie._id}}</td>
+                        <td>{{categorie.code}}</td>
+                        <td>{{categorie.designation}}</td>
+                        <td>
+  
+  
+                            <button class="btn btn-success" (click)="editItem(categorie)">Editer</button>
+                            <button class="btn btn-danger" (click)="deleteCategorie(categorie)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+<div id="id01" class="">
+
+  <div class="modal-content">
+      <div class="container">
+
+          <h1>Liste Produits</h1>
+          <hr>
+
+          <table class="table">
+              <thead>
+                  <tr>
+                      <td>Code</td>
+                      <td>Libellé</td>
+                      <td>Prix</td>
+                      <td>Action</td>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let produit of listProduits">
+                      <td>{{produit.code}}</td>
+                      <td>{{produit.libelle}}</td>
+                      <td>{{produit.prix}}</td>
+                      <td>
+                          <button class="btn btn-success" (click)="editItem(produit)">Editer</button>
+                          <button class="btn btn-danger" (click)="deleteProduit(produit)">Supprimer</button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

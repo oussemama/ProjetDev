@@ -1,0 +1,58 @@
+<div id="id01" class="">
+	<form class="modal-content" novalidate [formGroup]="CommandeForm">
+		<div class="container">
+			<h1>Nouveau Commande</h1>
+			<p>Veuillez saisir les données du produit</p>
+			<hr>
+			<div class="form-group">
+				<label>Client Bénéficaire:</label>
+				<select class="form-control" [(ngModel)]="beneficaire">
+					<option *ngFor='let ben of listBeneficaire' value={{ben._id}}>{{ben.nom}} :
+						{{ben.prenom}}</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Date création commande:</label>
+				<input type="date" class="form-control" placeholder="Date création" [(ngModel)]="date_c" formControlName="date_c">
+				<small class="form-text text-muted"	*ngIf="CommandeForm.controls.date_c.invalid&&(CommandeForm.controls.date_c.dirty 
+														|| CommandeForm.controls.date_c.touched)">
+														
+				</small>	
+			</div>
+
+			<div class="form-group">
+				<label>Date livraison commande:</label>
+				<input type="date" class="form-control" placeholder="Date livraison" [(ngModel)]="date_l" formControlName="date_l">
+				<small class="form-text text-muted"	*ngIf="CommandeForm.controls.date_l.invalid&&(CommandeForm.controls.date_l.dirty 
+				|| CommandeForm.controls.date_l.touched)">
+				Champs Date livraison est requis
+				</small>
+			</div>
+			<div class="form-group">
+				<label>Produit commandé:</label>
+				<select class="form-control" [(ngModel)]="produit_comm">
+					<option *ngFor='let pro of listProduit' value={{pro._id}}>{{pro.libelle}} :  
+						{{pro.prix}} DT</option>
+				</select>
+			</div>
+				<div class="form-group">
+					<label>Quantité de produit commandé:</label>
+					<input type="number" class="form-control" placeholder="Quantité de produit commandé" [(ngModel)]="quant" formControlName="quant">
+					<small class="form-text text-muted"	*ngIf="CommandeForm.controls.quant.invalid&&(CommandeForm.controls.quant.dirty 
+															|| CommandeForm.controls.quant.touched)">
+															
+					</small>	
+				
+			</div>
+
+
+
+
+
+			<div class="clearfix">
+				<input type="button" class="btn btn-success" value="Créer" (click)="ajoutCommande()">
+				<input class="btn btn-secondary" type="reset" value="Effacer">
+			</div>
+		</div>
+	</form>
+</div>

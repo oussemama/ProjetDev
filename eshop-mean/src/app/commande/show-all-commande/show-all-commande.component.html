@@ -1,0 +1,37 @@
+<div id="id01" class="">
+
+    <div class="modal-content">
+        <div class="container">
+  
+            <h1>Liste des Commandes </h1>
+            <hr>
+  
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Identifiant Commande</td>
+                        <td>Date de création Commande</td>
+                        <td>Date de livraison Commande </td>
+                        <td>Quantité de produit commandé </td>
+                        <td>Action</td>
+  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let commande of listCommandes">
+                        <td>{{commande._id}}</td>
+                        <td>{{commande.date_c}}</td>
+                        <td>{{commande.date_l}}</td>
+                        <td>{{commande.quant}}</td>
+                        <td>
+  
+  
+                            <button class="btn btn-success" (click)="editItem(commande)">Editer</button>
+                            <button class="btn btn-danger" (click)="deleteCommande(commande)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
